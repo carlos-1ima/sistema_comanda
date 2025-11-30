@@ -1,7 +1,7 @@
 import  tkinter as tk
 from tkinter import ttk, messagebox
 
-from models.comanda_model import(
+from models.comanda_model import (
     listar_comandas,
     deletar_comanda
 )
@@ -41,7 +41,7 @@ def abrir_tela_principal():
     tabela.pack(fill="both", expand=True, pady=10)
     
     def carregar_tabela():
-        for linha in tabela.get.children():
+        for linha in tabela.get_children():
             tabela.delete(linha)
         
         dados = listar_comandas()
@@ -69,7 +69,7 @@ def abrir_tela_principal():
             return
         
         valores = tabela.item(item, "values")
-        abrir_tela_comanda(carregar_tabela)
+        abrir_tela_comanda(recarregar_tabela=carregar_tabela, dados=valores)
         
     botao_editar = tk.Button(
         frame_botoes,

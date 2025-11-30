@@ -1,7 +1,7 @@
 import sqlite3
 
 def conectar():
-    conexao = sqlite3,connect("comandas.db")
+    conexao = sqlite3.connect("comandas.db")
     return conexao
 
 def criar_tabelas():
@@ -17,5 +17,5 @@ def criar_tabelas():
         )
     """)
     
-    conexao,commit()
+    conexao.commit()
     conexao.close()

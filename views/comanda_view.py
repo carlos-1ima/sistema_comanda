@@ -11,31 +11,31 @@ def abrir_tela_comanda(recarregar_tabela, dados=None):
     janela.title("Cadastro Comanda")
     janela.geometry("400x300")
 
-label_mesa = tk.Label(janela, text="Mesa")
-label_mesa.pack(pady=5)
+    label_mesa = tk.Label(janela, text="Mesa")
+    label_mesa.pack(pady=5)
 
-input_mesa = tk.Entry(janela)
-input_mesa.pack()
+    input_mesa = tk.Entry(janela)
+    input_mesa.pack()
 
-label_pedido = tk.Label(janela, text="Pedido:")
-label_pedido.pack(pady=5)
+    label_pedido = tk.Label(janela, text="Pedido:")
+    label_pedido.pack(pady=5)
 
-input_pedido = tk.Entry(janela)
-input_pedido.pack()
+    input_pedido = tk.Entry(janela)
+    input_pedido.pack()
 
-label_valor = tk.Label(janela, text="Valor (R$):")
-label_valor.pack(pady=5)
+    label_valor = tk.Label(janela, text="Valor (R$):")
+    label_valor.pack(pady=5)
 
-input_valor = tk.Entry(janela)
-input_valor.pack()
+    input_valor = tk.Entry(janela)
+    input_valor.pack()
 
-id_comanda = None
+    id_comanda = None
 
-if dados:
-    id_comanda = dados[0]
-    input_mesa.insert(0, dados[1])
-    input_pedido.insert(0, dados[2])
-    input_valor.insert(0, dados[3])
+    if dados:
+        id_comanda = dados[0]
+        input_mesa.insert(0, dados[1])
+        input_pedido.insert(0, dados[2])
+        input_valor.insert(0, dados[3])
     
     def salvar():
         mesa = input_mesa.get()
@@ -62,13 +62,13 @@ if dados:
         recarregar_tabela()
         janela.destroy()
         
-        botao_salvar = tk.Button(
-            janela, 
-            text="Salvar",
-            width=15,
-            command=salvar
-        )
-        botao_salvar.pack(pady=20)
+    botao_salvar = tk.Button(
+        janela, 
+        text="Salvar",
+        width=15,
+        command=salvar
+    )
+    botao_salvar.pack(pady=20)
         
         
         
