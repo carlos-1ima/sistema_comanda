@@ -7,6 +7,7 @@ from models.comanda_model import (
 )
 
 from views.comanda_view import abrir_tela_comanda
+from views.admin_view import abrir_admin
 
 def abrir_tela_principal():
     janela = tk.Tk()
@@ -104,6 +105,14 @@ def abrir_tela_principal():
         command=deletar
     )
     botao_deletar.grid(row=0, column=2, padx=10)
+    
+    botao_admin = tk.Button(
+        frame_botoes,
+        text="Administração",
+        width=15,
+        command=abrir_admin
+    )
+    botao_admin.grid(row=0, column=3, padx=10)
     
     janela.mainloop()
     

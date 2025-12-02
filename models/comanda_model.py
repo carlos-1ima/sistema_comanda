@@ -41,6 +41,13 @@ def deletar_comanda(id_comanda):
     cursor = conexao.cursor()
     
     cursor.execute("DELETE FROM comandas WHERE id = ?", (id_comanda,))
-    
+
+def deletar_todas():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("DELETE FROM comandas")
+    conexao.commit()
+    conexao.close()
+
     conexao.commit()
     conexao.close()

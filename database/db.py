@@ -1,8 +1,12 @@
 import sqlite3
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent  # vai para a raiz do projeto
+DB_PATH = BASE_DIR / "comandas.db"
 
 def conectar():
-    conexao = sqlite3.connect("comandas.db")
-    return conexao
+    return sqlite3.connect(str(DB_PATH))
 
 def criar_tabelas():
     conexao = conectar()
@@ -19,3 +23,20 @@ def criar_tabelas():
     
     conexao.commit()
     conexao.close()
+
+def resetar():
+    try:
+        tmp = sqlite3.connect(str(DB_PATH))
+        tmp.close()
+    except Exception:
+        pass
+    
+    if DB_PATH.exists():
+        try:
+            DB_PATH.unlink()
+        except PermissionError as e:
+            raise PermissionError(f"Não foi possível remover {DB_PATH!s}: {e}")
+            
+    criar_tabelas()
+    
+criar_tabelas()
